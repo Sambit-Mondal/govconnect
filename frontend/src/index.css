@@ -1,3 +1,26 @@
+/* Import component styles */
+@import './components/Navbar.css';
+@import './components/Button.css';
+@import './components/Card.css';
+@import './components/Sidebar.css';
+@import './components/Table.css';
+@import './components/Footer.css';
+
+/* Import page styles */
+@import './pages/Landing/LandingPage.css';
+@import './pages/Auth/Auth.css';
+@import './pages/Dashboard/Dashboard.css';
+@import './pages/Eligibility/EligibilityChecker.css';
+@import './pages/GovAssist/GovAssist.css';
+@import './pages/ServiceFinder/ServiceFinder.css';
+@import './pages/Documents/DocumentVault.css';
+@import './pages/Payments/PaymentsDashboard.css';
+@import './pages/NearbyServices/NearbyServices.css';
+@import './pages/Notifications/Notifications.css';
+@import './pages/Profile/CitizenProfile.css';
+@import './pages/Grievances/GrievanceFeedback.css';
+@import './pages/Security/SecurityPrivacy.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -76,28 +99,7 @@ code {
     monospace;
 }
 
-/* Import component styles */
-@import './components/Navbar.css';
-@import './components/Button.css';
-@import './components/Card.css';
-@import './components/Sidebar.css';
-@import './components/Table.css';
-@import './components/Footer.css';
 
-/* Import page styles */
-@import './pages/Landing/LandingPage.css';
-@import './pages/Auth/Auth.css';
-@import './pages/Dashboard/Dashboard.css';
-@import './pages/Eligibility/EligibilityChecker.css';
-@import './pages/GovAssist/GovAssist.css';
-@import './pages/ServiceFinder/ServiceFinder.css';
-@import './pages/Documents/DocumentVault.css';
-@import './pages/Payments/PaymentsDashboard.css';
-@import './pages/NearbyServices/NearbyServices.css';
-@import './pages/Notifications/Notifications.css';
-@import './pages/Profile/CitizenProfile.css';
-@import './pages/Grievances/GrievanceFeedback.css';
-@import './pages/Security/SecurityPrivacy.css';
 
 /* Utility classes */
 .container {
