@@ -1,0 +1,379 @@
+.security-page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--gray-50);
+}
+
+.security-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2rem;
+  background-color: var(--gray-50);
+}
+
+.security-header {
+  margin-bottom: 2rem;
+}
+
+.security-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.security-subtitle {
+  color: var(--gray-600);
+  font-size: 1rem;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.security-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+/* Login Activity */
+.login-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.activity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activity-device {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.activity-location,
+.activity-time {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.activity-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.activity-status.current {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+/* Active Devices */
+.devices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.device-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.device-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.device-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.device-name {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.device-details {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.device-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.device-badge.primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+/* Data Access */
+.data-access-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.data-access-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.access-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.access-service {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.access-type,
+.access-date {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+/* Consent History */
+.consent-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.consent-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.consent-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.consent-purpose {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.consent-department,
+.consent-date {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.consent-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.consent-status.active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+/* Connected Departments */
+.departments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.department-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.department-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.department-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.department-name {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.department-status {
+  font-size: 0.875rem;
+  color: var(--success-green);
+}
+
+/* Privacy Settings */
+.privacy-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.privacy-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.setting-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.setting-label {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.setting-description {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.setting-select {
+  padding: 0.5rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  background-color: var(--white);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--gray-300);
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--white);
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: var(--primary-blue);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .security-content {
+    margin-left: 240px;
+  }
+
+  .security-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .security-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-row,
+  .device-item,
+  .data-access-item,
+  .consent-item,
+  .department-item,
+  .privacy-setting {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .device-icon,
+  .department-icon {
+    margin-right: 0;
+  }
+}

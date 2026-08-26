@@ -1,0 +1,490 @@
+/* Nearby Services Page Styles */
+.nearby-services-page-layout {
+  display: flex;
+  min-height: calc(100vh - 70px);
+  background: var(--gray-50);
+}
+
+.nearby-services-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 280px;
+  min-height: calc(100vh - 70px);
+}
+
+.nearby-services-header {
+  margin-bottom: 2rem;
+}
+
+.nearby-services-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin: 0 0 0.5rem 0;
+}
+
+.nearby-services-subtitle {
+  font-size: 1rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+/* Location Search Card */
+.location-search-card {
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.location-search-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-input-wrapper {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.location-input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.location-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.location-input::placeholder {
+  color: var(--gray-400);
+}
+
+.search-location-button,
+.current-location-button {
+  flex-shrink: 0;
+}
+
+/* Nearby Services Grid */
+.nearby-services-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+}
+
+/* Map Section */
+.map-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.map-card {
+  box-shadow: var(--shadow);
+  min-height: 300px;
+}
+
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+
+.map-illustration {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
+.map-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.map-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.map-marker {
+  position: absolute;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.map-marker:hover {
+  transform: scale(1.2);
+}
+
+.map-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin: 0 0 0.5rem 0;
+}
+
+.map-subtext {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+/* Filters Card */
+.filters-card {
+  box-shadow: var(--shadow);
+}
+
+.quick-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-align: left;
+}
+
+.filter-button:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.filter-button.active {
+  background: var(--primary-blue);
+  color: var(--white);
+  border-color: var(--primary-blue);
+}
+
+/* Services List Section */
+.services-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0;
+}
+
+.section-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  background: var(--white);
+}
+
+/* Category Filter */
+.category-filter {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.category-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  white-space: nowrap;
+}
+
+.category-pill:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.category-pill.active {
+  background: var(--primary-blue);
+  color: var(--white);
+  border-color: var(--primary-blue);
+}
+
+.category-icon {
+  font-size: 1rem;
+}
+
+.category-label {
+  font-size: 0.9rem;
+}
+
+/* Offices List */
+.offices-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.office-card {
+  transition: all 0.3s;
+}
+
+.office-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.office-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.office-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.office-info {
+  flex: 1;
+}
+
+.office-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0 0 0.25rem 0;
+}
+
+.office-type {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.office-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.rating-stars {
+  color: #f59e0b;
+}
+
+.rating-score {
+  font-weight: 600;
+}
+
+/* Office Details */
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.office-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+.detail-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.detail-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Office Actions */
+.office-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.directions-button,
+.call-button {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .nearby-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-section {
+    flex-direction: row;
+  }
+  
+  .map-card {
+    flex: 1;
+  }
+  
+  .filters-card {
+    width: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nearby-services-content {
+    margin-left: 240px;
+    padding: 1.5rem;
+  }
+  
+  .nearby-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-section {
+    flex-direction: column;
+  }
+  
+  .filters-card {
+    width: 100%;
+  }
+  
+  .offices-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .nearby-services-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  
+  .nearby-services-title {
+    font-size: 1.5rem;
+  }
+  
+  .search-input-wrapper {
+    flex-direction: column;
+  }
+  
+  .search-location-button,
+  .current-location-button {
+    width: 100%;
+  }
+  
+  .category-filter {
+    overflow-x: auto;
+  }
+  
+  .office-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .office-actions {
+    flex-direction: column;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .section-actions {
+    width: 100%;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .offices-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .office-details {
+    padding: 0.75rem;
+  }
+  
+  .office-detail {
+    font-size: 0.85rem;
+  }
+  
+  .detail-icon {
+    font-size: 1rem;
+  }
+}
