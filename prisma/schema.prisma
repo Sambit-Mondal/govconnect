@@ -1,0 +1,246 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                 Int       @id @default(autoincrement())
+  name               String
+  email              String    @unique
+  password           String
+  phone              String?
+  aadhar_number      String?   @unique
+  address            String?
+  date_of_birth      DateTime?
+  role               String?   @default("citizen")
+  two_factor_enabled Boolean?  @default(false)
+  status             String?   @default("active")
+  created_at         DateTime? @default(now())
+  updated_at         DateTime? @default(now()) @updatedAt
+
+  applications       Application[]
+  documents          Document[]
+  payments           Payment[]
+  notifications      Notification[]
+  grievances         Grievance[]
+  login_activities   LoginActivity[]
+  audit_logs         AuditLog[]
+  assigned_grievances Grievance[] @relation("AssignedGrievances")
+
+  @@map("users")
+}
+
+model Department {
+  id                  Int       @id @default(autoincrement())
+  name                String
+  code                String    @unique
+  description         String?
+  head_office_address String?
+  contact_email       String?
+  contact_phone       String?
+  website             String?
+  is_active           Boolean?  @default(true)
+  created_at          DateTime? @default(now())
+
+  services            Service[]
+  schemes             Scheme[]
+  government_offices  GovernmentOffice[]
+
+  @@map("departments")
+}
+
+model Service {
+  id                   Int       @id @default(autoincrement())
+  name                 String
+  code                 String    @unique
+  category             String?
+  description          String?
+  department_id        Int?
+  processing_time      Int?
+  fee_amount           Decimal?
+  required_documents   String[]
+  eligibility_criteria String?
+  is_active            Boolean?  @default(true)
+  created_at           DateTime? @default(now())
+
+  department           Department? @relation(fields: [department_id], references: [id])
+  applications         Application[]
+
+  @@map("services")
+}
+
+model Application {
+  id                Int       @id @default(autoincrement())
+  user_id           Int?
+  service_id        Int?
+  type              String?
+  data              Json?
+  status            String?   @default("pending")
+  submission_date   DateTime? @default(now())
+  approved_at       DateTime?
+  rejected_at       DateTime?
+  rejection_reason  String?
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @default(now()) @updatedAt
+
+  user              User?     @relation(fields: [user_id], references: [id])
+  service           Service?  @relation(fields: [service_id], references: [id])
+  payments          Payment[]
+
+  @@map("applications")
+}
+
+model Document {
+  id                  Int       @id @default(autoincrement())
+  user_id             Int?
+  name                String
+  type                String?
+  file_path           String
+  file_size           BigInt?
+  mime_type           String?
+  description         String?
+  verification_status String?   @default("pending")
+  uploaded_at         DateTime? @default(now())
+
+  user                User?     @relation(fields: [user_id], references: [id])
+
+  @@map("documents")
+}
+
+model Payment {
+  id               Int       @id @default(autoincrement())
+  user_id          Int?
+  application_id   Int?
+  amount           Decimal
+  description      String?
+  due_date         DateTime? @db.Date
+  status           String?   @default("pending")
+  payment_method   String?
+  transaction_id   String?
+  paid_at          DateTime?
+  created_at       DateTime? @default(now())
+
+  user             User?        @relation(fields: [user_id], references: [id])
+  application      Application? @relation(fields: [application_id], references: [id])
+
+  @@map("payments")
+}
+
+model Notification {
+  id         Int       @id @default(autoincrement())
+  user_id    Int?
+  type       String?
+  title      String
+  message    String
+  is_read    Boolean?  @default(false)
+  created_at DateTime? @default(now())
+
+  user       User?     @relation(fields: [user_id], references: [id])
+
+  @@map("notifications")
+}
+
+model Grievance {
+  id           Int       @id @default(autoincrement())
+  user_id      Int?
+  title        String
+  category     String?
+  description  String
+  location     String?
+  status       String?   @default("pending")
+  priority     String?   @default("normal")
+  assigned_to  Int?
+  resolution   String?
+  resolved_at  DateTime?
+  created_at   DateTime? @default(now())
+  updated_at   DateTime? @default(now()) @updatedAt
+
+  user         User?     @relation(fields: [user_id], references: [id])
+  assignee     User?     @relation("AssignedGrievances", fields: [assigned_to], references: [id])
+
+  @@map("grievances")
+}
+
+model Scheme {
+  id                   Int       @id @default(autoincrement())
+  name                 String
+  code                 String    @unique
+  category             String?
+  description          String?
+  department_id        Int?
+  min_age              Int?
+  max_income           Decimal?
+  eligibility_criteria String?
+  benefits             String?
+  application_process  String?
+  start_date           DateTime? @db.Date
+  end_date             DateTime? @db.Date
+  is_active            Boolean?  @default(true)
+  created_at           DateTime? @default(now())
+
+  department           Department? @relation(fields: [department_id], references: [id])
+
+  @@map("schemes")
+}
+
+model GovernmentOffice {
+  id               Int       @id @default(autoincrement())
+  name             String
+  type             String?
+  department_id    Int?
+  address          String
+  city             String?
+  state            String?
+  pincode          String?
+  latitude         Decimal?
+  longitude        Decimal?
+  contact_phone    String?
+  contact_email    String?
+  working_hours    String?
+  services_offered String[]
+  is_active        Boolean?  @default(true)
+  created_at       DateTime? @default(now())
+
+  department       Department? @relation(fields: [department_id], references: [id])
+
+  @@map("government_offices")
+}
+
+model LoginActivity {
+  id          Int       @id @default(autoincrement())
+  user_id     Int?
+  ip_address  String?
+  user_agent  String?
+  login_time  DateTime? @default(now())
+  logout_time DateTime?
+  status      String?   @default("active")
+
+  user        User?     @relation(fields: [user_id], references: [id])
+
+  @@map("login_activities")
+}
+
+model AuditLog {
+  id          Int       @id @default(autoincrement())
+  user_id     Int?
+  action      String
+  entity_type String?
+  entity_id   Int?
+  old_values  Json?
+  new_values  Json?
+  ip_address  String?
+  user_agent  String?
+  created_at  DateTime? @default(now())
+
+  user        User?     @relation(fields: [user_id], references: [id])
+
+  @@map("audit_logs")
+}
