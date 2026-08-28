@@ -15,10 +15,10 @@ export default async function Page() {
 
   const formattedAlerts = systemAlerts.map(alert => ({
     id: alert.id,
-    type: alert.type,
+    type: alert.severity || 'warning',
     title: alert.title,
     message: alert.message,
-    status: alert.is_read ? 'resolved' : 'active',
+    status: alert.status || 'active',
     time: alert.created_at ? new Date(alert.created_at).toLocaleString() : "Just now"
   }));
 

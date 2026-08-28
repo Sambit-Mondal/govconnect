@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Bell, FileText, Files, CreditCard, AlertTriangle, GraduationCap, CheckCircle2, Clock } from "lucide-react";
-import io from "socket.io-client";
 
 export default function NotificationsPage({ initialNotifications, userId }: { initialNotifications: any[], userId: number }) {
   const [activeTab, setActiveTab] = useState("All");
@@ -18,23 +17,7 @@ export default function NotificationsPage({ initialNotifications, userId }: { in
     { label: "Schemes", icon: <GraduationCap className="w-4 h-4" /> },
   ];
 
-  useEffect(() => {
-    // Connect to socket server
-    const socket = io();
 
-    socket.on("connect", () => {
-      console.log("Connected to socket server");
-      socket.emit("join", userId);
-    });
-
-    socket.on("new_notification", (newNotification) => {
-      setNotifications(prev => [newNotification, ...prev]);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, [userId]);
 
   const filteredNotifications = activeTab === "All" 
     ? notifications 

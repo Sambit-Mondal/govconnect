@@ -2,27 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Bell, UserCircle, ChevronDown } from "lucide-react";
-import io from "socket.io-client";
 import Link from "next/link";
 
 export default function TopBarClient({ userName, userId }: { userName: string; userId: number }) {
   const [unreadCount, setUnreadCount] = useState(0);
 
-  useEffect(() => {
-    const socket = io();
 
-    socket.on("connect", () => {
-      socket.emit("join", userId);
-    });
-
-    socket.on("new_notification", () => {
-      setUnreadCount(prev => prev + 1);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, [userId]);
 
   return (
     <>

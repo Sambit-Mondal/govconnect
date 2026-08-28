@@ -46,7 +46,7 @@ export default async function Page() {
     <SecurityPrivacyCenter 
       initialConsents={formattedConsents} 
       initialLogins={formattedLogins} 
-      twoFactorEnabled={user.two_factor_enabled} 
+      twoFactorEnabled={user.two_factor_enabled ?? false} 
     />
   );
 }
