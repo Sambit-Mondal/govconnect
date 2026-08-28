@@ -25,7 +25,7 @@ export default function Navbar({ session }: { session?: any }) {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2">
             <Building2 className="h-6 w-6 text-primary" />
-            <span className="font-bold text-xl tracking-tight text-primary">GovConnect</span>
+            <span className="font-bold text-xl tracking-tight text-primary">Sangam</span>
           </Link>
         </div>
 
@@ -34,9 +34,8 @@ export default function Navbar({ session }: { session?: any }) {
             <Link
               key={link.name}
               href={link.path}
-              className={`transition-colors font-semibold text-[15px] hover:text-primary ${
-                pathname === link.path ? "text-primary" : "text-gray-600"
-              }`}
+              className={`transition-colors font-semibold text-[15px] hover:text-primary ${pathname === link.path ? "text-primary" : "text-gray-600"
+                }`}
             >
               {link.name}
             </Link>
@@ -46,7 +45,7 @@ export default function Navbar({ session }: { session?: any }) {
         <div className="flex items-center space-x-4">
           {session ? (
             <Link
-              href="/dashboard"
+              href={session.role === "admin" ? "/admin/dashboard" : "/dashboard"}
               className="inline-flex h-10 items-center justify-center rounded-lg border-2 border-primary/20 bg-primary/5 px-6 py-2 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-primary/10 hover:border-primary/30 hover:scale-105 active:scale-95"
             >
               Dashboard

@@ -1,7 +1,7 @@
-# GovConnect Database Design
+# Sangam Database Design
 
 ## Overview
-GovConnect uses PostgreSQL as its primary database. The database schema is designed to support a comprehensive government services platform.
+Sangam uses PostgreSQL as its primary database. The database schema is designed to support a comprehensive government services platform.
 
 ## Tables
 

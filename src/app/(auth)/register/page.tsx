@@ -62,11 +62,11 @@ export default function RegisterPage() {
           <div className="flex flex-col items-center text-center mb-8">
             <Building2 className="h-10 w-10 text-primary mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Create Account</h1>
-            <p className="text-sm text-gray-500 mt-1 font-medium">Join GovConnect today</p>
+            <p className="text-sm text-gray-500 mt-1 font-medium">Join Sangam today</p>
           </div>
 
           <form onSubmit={handleRegister} className="space-y-4">
-            
+
             {/* Full Name */}
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -129,7 +129,7 @@ export default function RegisterPage() {
                 placeholder="Aadhaar Number (Optional)"
               />
             </div>
-            
+
             {/* Password */}
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -167,7 +167,7 @@ export default function RegisterPage() {
         <div className="bg-gray-50 px-8 py-6 border-t border-gray-100 flex items-center justify-center">
           <div className="flex items-center gap-2 text-xs text-gray-500 font-medium">
             <Fingerprint className="w-4 h-4 text-green-600" />
-            <span>GovConnect uses end-to-end encryption for security.</span>
+            <span>Sangam uses end-to-end encryption for security.</span>
           </div>
         </div>
       </motion.div>

@@ -21,7 +21,7 @@ export default function CitizenDashboard() {
 
   const quickActions = [
     { icon: <Search className="w-6 h-6 text-primary/70 group-hover:text-primary transition-colors" />, label: "Smart Service Finder", href: "/dashboard/services" },
-    { icon: <Bot className="w-6 h-6 text-purple-600/70 group-hover:text-purple-600 transition-colors" />, label: "AI GovAssist", href: "/dashboard/ai" },
+
     { icon: <Vault className="w-6 h-6 text-blue-600/70 group-hover:text-blue-600 transition-colors" />, label: "Document Vault", href: "/dashboard/documents" },
     { icon: <FileSearch className="w-6 h-6 text-green-600/70 group-hover:text-green-600 transition-colors" />, label: "Scheme Checker", href: "/dashboard/schemes" },
     { icon: <MessageSquareWarning className="w-6 h-6 text-red-600/70 group-hover:text-red-600 transition-colors" />, label: "Grievance", href: "/dashboard/grievances" },

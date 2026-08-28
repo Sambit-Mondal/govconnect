@@ -34,6 +34,7 @@ model User {
   login_activities   LoginActivity[]
   audit_logs         AuditLog[]
   assigned_grievances Grievance[] @relation("AssignedGrievances")
+  data_consents      DataConsent[]
 
   @@map("users")
 }
@@ -53,6 +54,7 @@ model Department {
   services            Service[]
   schemes             Scheme[]
   government_offices  GovernmentOffice[]
+  data_consents       DataConsent[]
 
   @@map("departments")
 }
@@ -243,4 +245,68 @@ model AuditLog {
   user        User?     @relation(fields: [user_id], references: [id])
 
   @@map("audit_logs")
+}
+
+model Workflow {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  status      String?   @default("active") // active, paused, draft
+  trigger     String?
+  actions     Json?
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now()) @updatedAt
+
+  @@map("workflows")
+}
+
+model SystemSetting {
+  id          Int       @id @default(autoincrement())
+  key         String    @unique
+  value       String
+  description String?
+  updated_at  DateTime? @default(now()) @updatedAt
+
+  @@map("system_settings")
+}
+
+model SystemAlert {
+  id          Int       @id @default(autoincrement())
+  title       String
+  message     String
+  severity    String?   @default("info") // info, warning, critical
+  status      String?   @default("active") // active, acknowledged, resolved
+  created_at  DateTime? @default(now())
+  resolved_at DateTime?
+
+  @@map("system_alerts")
+}
+
+model Adapter {
+  id          Int       @id @default(autoincrement())
+  name        String
+  type        String // e.g., payment, sms, email, identity
+  status      String?   @default("disconnected") // connected, disconnected, error
+  config      Json?
+  last_sync   DateTime?
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now()) @updatedAt
+
+  @@map("adapters")
+}
+
+model DataConsent {
+  id             Int       @id @default(autoincrement())
+  user_id        Int
+  department_id  Int
+  purpose        String
+  status         String?   @default("active") // active, revoked
+  granted_at     DateTime? @default(now())
+  revoked_at     DateTime?
+  expires_at     DateTime?
+
+  user           User       @relation(fields: [user_id], references: [id])
+  department     Department @relation(fields: [department_id], references: [id])
+
+  @@map("data_consents")
 }

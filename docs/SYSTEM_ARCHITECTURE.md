@@ -1,7 +1,7 @@
-# GovConnect System Architecture
+# Sangam System Architecture
 
 ## Overview
-GovConnect is a full-stack government services platform built with modern web technologies. The system follows a microservices-inspired architecture with clear separation of concerns.
+Sangam is a full-stack government services platform built with modern web technologies. The system follows a microservices-inspired architecture with clear separation of concerns.
 
 ## Technology Stack
 

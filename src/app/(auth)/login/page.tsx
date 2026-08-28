@@ -55,16 +55,15 @@ export default function LoginPage() {
         <div className="p-8">
           <div className="flex flex-col items-center text-center mb-8">
             <Building2 className="h-10 w-10 text-primary mb-4" />
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Welcome to GovConnect</h1>
+            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Welcome to Sangam</h1>
             <p className="text-sm text-gray-500 mt-1 font-medium">Single Sign-On</p>
           </div>
 
           <div className="flex w-full mb-8 border-b">
             <button
               onClick={() => setActiveTab("citizen")}
-              className={`flex-1 pb-3 text-sm font-medium transition-colors relative ${
-                activeTab === "citizen" ? "text-primary" : "text-gray-500 hover:text-gray-700"
-              }`}
+              className={`flex-1 pb-3 text-sm font-medium transition-colors relative ${activeTab === "citizen" ? "text-primary" : "text-gray-500 hover:text-gray-700"
+                }`}
             >
               Citizen / Business
               {activeTab === "citizen" && (
@@ -76,9 +75,8 @@ export default function LoginPage() {
             </button>
             <button
               onClick={() => setActiveTab("official")}
-              className={`flex-1 pb-3 text-sm font-medium transition-colors relative ${
-                activeTab === "official" ? "text-primary" : "text-gray-500 hover:text-gray-700"
-              }`}
+              className={`flex-1 pb-3 text-sm font-medium transition-colors relative ${activeTab === "official" ? "text-primary" : "text-gray-500 hover:text-gray-700"
+                }`}
             >
               Department Official
               {activeTab === "official" && (
@@ -104,7 +102,7 @@ export default function LoginPage() {
                 placeholder="Mobile / Email / Username"
               />
             </div>
-            
+
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Lock className="h-5 w-5 text-gray-400" />

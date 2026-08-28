@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "GovConnect - One Platform. Connected Government Services.",
+  title: "Sangam - One Platform. Connected Government Services.",
   description: "Access multiple government services through a single secure platform.",
 };
 

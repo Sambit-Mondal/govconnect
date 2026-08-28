@@ -1,7 +1,7 @@
-# GovConnect Entity Relationship Diagram
+# Sangam Entity Relationship Diagram
 
 ## Overview
-This document describes the entity relationships in the GovConnect database system. The diagram below shows the relationships between all tables in the database.
+This document describes the entity relationships in the Sangam database system. The diagram below shows the relationships between all tables in the database.
 
 ## ER Diagram Description
 

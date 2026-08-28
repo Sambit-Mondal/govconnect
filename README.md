@@ -1,4 +1,4 @@
-# GovConnect
+# Sangam
 
 A comprehensive government services platform that connects citizens with government services, schemes, and departments.
 
@@ -49,7 +49,7 @@ A comprehensive government services platform that connects citizens with governm
 ## Project Structure
 
 ```
-GovConnect/
+Sangam/
 ├── frontend/          # React frontend application
 ├── backend/           # Node.js backend API
 ├── database/          # SQL schema and migrations

@@ -33,7 +33,7 @@ export default function AdminMonitoringDashboard() {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">System Monitoring Dashboard</h1>
-          <p className="text-gray-500">Real-time overview of GovConnect infrastructure</p>
+          <p className="text-gray-500">Real-time overview of Sangam infrastructure</p>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg border border-green-200">
           <span className="relative flex h-3 w-3">
@@ -46,7 +46,7 @@ export default function AdminMonitoringDashboard() {
 
       {/* Top Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6"
@@ -61,7 +61,7 @@ export default function AdminMonitoringDashboard() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -75,7 +75,7 @@ export default function AdminMonitoringDashboard() {
           <p className="text-sm text-gray-500 font-medium">Target: 99.99%</p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -94,9 +94,9 @@ export default function AdminMonitoringDashboard() {
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
+
         {/* Line Chart Area */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -108,14 +108,14 @@ export default function AdminMonitoringDashboard() {
               <AreaChart data={trafficData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorRequests" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#2563eb" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="time" stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-                <Tooltip 
+                <Tooltip
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
                 <Area type="monotone" dataKey="requests" stroke="#2563eb" strokeWidth={3} fillOpacity={1} fill="url(#colorRequests)" />
@@ -127,7 +127,7 @@ export default function AdminMonitoringDashboard() {
         {/* Right Side - System Health & Alerts */}
         <div className="space-y-6">
           {/* System Health */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -143,9 +143,8 @@ export default function AdminMonitoringDashboard() {
                     <div className="font-semibold text-gray-900">{sys.name}</div>
                     <div className="text-xs text-gray-500 font-medium">Uptime: {sys.uptime}</div>
                   </div>
-                  <div className={`px-2.5 py-1 rounded-full text-xs font-bold border ${
-                    sys.status === 'Operational' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-orange-50 text-orange-700 border-orange-200'
-                  }`}>
+                  <div className={`px-2.5 py-1 rounded-full text-xs font-bold border ${sys.status === 'Operational' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-orange-50 text-orange-700 border-orange-200'
+                    }`}>
                     {sys.status}
                   </div>
                 </div>
@@ -154,7 +153,7 @@ export default function AdminMonitoringDashboard() {
           </motion.div>
 
           {/* Recent Alerts */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -164,15 +163,13 @@ export default function AdminMonitoringDashboard() {
             <div className="space-y-4">
               {alerts.map((alert) => (
                 <div key={alert.id} className="flex gap-3 items-start">
-                  <div className={`mt-0.5 ${
-                    alert.type === 'warning' ? 'text-orange-500' : alert.type === 'error' ? 'text-red-500' : 'text-green-500'
-                  }`}>
+                  <div className={`mt-0.5 ${alert.type === 'warning' ? 'text-orange-500' : alert.type === 'error' ? 'text-red-500' : 'text-green-500'
+                    }`}>
                     {alert.type === 'warning' ? <AlertTriangle className="w-5 h-5" /> : alert.type === 'error' ? <ShieldAlert className="w-5 h-5" /> : <CheckCircle2 className="w-5 h-5" />}
                   </div>
                   <div>
-                    <p className={`text-sm font-semibold ${
-                      alert.type === 'warning' ? 'text-orange-800' : alert.type === 'error' ? 'text-red-800' : 'text-green-800'
-                    }`}>
+                    <p className={`text-sm font-semibold ${alert.type === 'warning' ? 'text-orange-800' : alert.type === 'error' ? 'text-red-800' : 'text-green-800'
+                      }`}>
                       {alert.message}
                     </p>
                     <p className="text-xs text-gray-500 font-medium">{alert.time}</p>

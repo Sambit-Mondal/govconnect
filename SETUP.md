@@ -1,8 +1,8 @@
-# GovConnect - Setup Instructions
+# Sangam - Setup Instructions
 
 ## Project Overview
 
-GovConnect is a unified digital government services platform that provides citizens with a single interface to access various government services, schemes, and departments.
+Sangam is a unified digital government services platform that provides citizens with a single interface to access various government services, schemes, and departments.
 
 ## Tech Stack
 

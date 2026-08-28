@@ -2,19 +2,21 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { 
-  LayoutDashboard, 
-  Activity, 
-  HeartPulse, 
-  Building2, 
-  Plug, 
-  GitMerge, 
+import {
+  LayoutDashboard,
+  Activity,
+  HeartPulse,
+  Building2,
+  Plug,
+  GitMerge,
   FileText,
   AlertTriangle,
   Users,
   Settings,
   LogOut,
-  Menu
+  Menu,
+  Inbox,
+  BarChart3
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -22,7 +24,9 @@ const navItems = [
   { icon: <LayoutDashboard className="w-5 h-5" />, label: "Dashboard", href: "/admin/dashboard" },
   { icon: <Activity className="w-5 h-5" />, label: "API Monitoring", href: "/admin/api-monitoring" },
   { icon: <HeartPulse className="w-5 h-5" />, label: "System Health", href: "/admin/health" },
+  { icon: <Inbox className="w-5 h-5" />, label: "Applications", href: "/admin/applications" },
   { icon: <Building2 className="w-5 h-5" />, label: "Departments", href: "/admin/departments" },
+  { icon: <BarChart3 className="w-5 h-5" />, label: "Reports", href: "/admin/reports" },
   { icon: <Plug className="w-5 h-5" />, label: "Adapters", href: "/admin/adapters" },
   { icon: <GitMerge className="w-5 h-5" />, label: "Workflows", href: "/admin/workflows" },
   { icon: <FileText className="w-5 h-5" />, label: "Audit Logs", href: "/admin/audit-logs" },
@@ -53,20 +57,19 @@ export default function AdminSidebar() {
     <div className="w-64 border-r bg-white h-screen flex flex-col sticky top-0 hidden md:flex">
       <div className="h-16 flex items-center px-6 border-b">
         <Menu className="w-5 h-5 text-gray-600 mr-3 cursor-pointer" />
-        <span className="font-bold text-lg text-gray-900">GovConnect Admin</span>
+        <span className="font-bold text-lg text-gray-900">Sangam Admin</span>
       </div>
-      
+
       <div className="flex-1 overflow-y-auto py-4">
         <nav className="space-y-1 px-3">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link 
-                key={item.label} 
+              <Link
+                key={item.label}
                 href={item.href}
-                className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors relative ${
-                  isActive ? "text-primary bg-primary/5" : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                }`}
+                className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors relative ${isActive ? "text-primary bg-primary/5" : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  }`}
               >
                 {isActive && (
                   <motion.div
@@ -85,7 +88,7 @@ export default function AdminSidebar() {
       </div>
 
       <div className="p-4 border-t">
-        <button 
+        <button
           onClick={handleLogout}
           className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors"
         >

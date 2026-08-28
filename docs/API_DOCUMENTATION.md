@@ -1,4 +1,4 @@
-# GovConnect API Documentation
+# Sangam API Documentation
 
 ## Base URL
 ```
